@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 9C279360121C6D7E009004AB /* boggle-solve-objc-xcode */;
+		activeTarget = 8DD76F960486AA7600D96B5E /* boggle-solve-objc-xcode */;
+		addToTargets = (
+			8DD76F960486AA7600D96B5E /* boggle-solve-objc-xcode */,
+		);
+		breakpoints = (
+			9C2795E1121DBA8B009004AB /* BoggleSolver.m:20 */,
+			9C2795EE121DBC65009004AB /* boggle-solve-objc-xcode.m:30 */,
+		);
+		codeSenseManager = 9C279367121C6D9D009004AB /* Code sense */;
+		executables = (
+			9C279360121C6D7E009004AB /* boggle-solve-objc-xcode */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					611.58349609375,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					724,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 304213128;
+			PBXWorkspaceStateSaveDate = 304213128;
+		};
+		perUserProjectItems = {
+			9C27936E121C6DDE009004AB /* PBXTextBookmark */ = 9C27936E121C6DDE009004AB /* PBXTextBookmark */;
+			9C2793A4121C6F75009004AB /* PBXTextBookmark */ = 9C2793A4121C6F75009004AB /* PBXTextBookmark */;
+			9C2793C4121C728A009004AB /* PBXTextBookmark */ = 9C2793C4121C728A009004AB /* PBXTextBookmark */;
+			9C27952E121DA9EA009004AB /* PBXTextBookmark */ = 9C27952E121DA9EA009004AB /* PBXTextBookmark */;
+			9C2795FE121DBD65009004AB /* PBXTextBookmark */ = 9C2795FE121DBD65009004AB /* PBXTextBookmark */;
+			9C279600121DBD65009004AB /* PBXTextBookmark */ = 9C279600121DBD65009004AB /* PBXTextBookmark */;
+			9C279601121DBD65009004AB /* PBXTextBookmark */ = 9C279601121DBD65009004AB /* PBXTextBookmark */;
+			9C279602121DBD65009004AB /* PBXTextBookmark */ = 9C279602121DBD65009004AB /* PBXTextBookmark */;
+			9CCABB9A1223010300ACBC74 /* PBXTextBookmark */ = 9CCABB9A1223010300ACBC74 /* PBXTextBookmark */;
+			9CCABB9B1223010300ACBC74 /* PBXTextBookmark */ = 9CCABB9B1223010300ACBC74 /* PBXTextBookmark */;
+			9CCABB9C1223010300ACBC74 /* PBXTextBookmark */ = 9CCABB9C1223010300ACBC74 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 9C279366121C6D9D009004AB /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* boggle-solve-objc-xcode.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {902, 572}}";
+			sepNavSelRange = "{539, 0}";
+			sepNavVisRange = "{101, 916}";
+			sepNavWindowFrame = "{{15, 122}, {739, 751}}";
+		};
+	};
+	32A70AAB03705E1F00C91783 /* boggle-solve-objc-xcode_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {845, 280}}";
+			sepNavSelRange = "{187, 0}";
+			sepNavVisRange = "{0, 188}";
+		};
+	};
+	8DD76F960486AA7600D96B5E /* boggle-solve-objc-xcode */ = {
+		activeExec = 0;
+		executables = (
+			9C279360121C6D7E009004AB /* boggle-solve-objc-xcode */,
+		);
+	};
+	9C279360121C6D7E009004AB /* boggle-solve-objc-xcode */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+			YES,
+		);
+		argumentStrings = (
+			aedrtylofgokquet,
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+			{
+				active = YES;
+				name = NSZombieEnabled;
+				value = YES;
+			},
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "boggle-solve-objc-xcode";
+		savedGlobals = {
+		};
+		showTypeColumn = 1;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			$fctrl = 1;
+			$fioff = 1;
+			$fiseg = 1;
+			$fooff = 1;
+			$fop = 1;
+			$foseg = 1;
+			$fstat = 1;
+			$ftag = 1;
+		};
+	};
+	9C279366121C6D9D009004AB /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	9C279367121C6D9D009004AB /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	9C27936A121C6DCE009004AB /* Dictionary.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {952, 460}}";
+			sepNavSelRange = "{293, 0}";
+			sepNavVisRange = "{0, 569}";
+		};
+	};
+	9C27936B121C6DCE009004AB /* Dictionary.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {992, 780}}";
+			sepNavSelRange = "{1143, 0}";
+			sepNavVisRange = "{150, 940}";
+		};
+	};
+	9C27936E121C6DDE009004AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6859EA3029092ED04C91782 /* boggle-solve-objc-xcode.1 */;
+		name = "boggle-solve-objc-xcode.1: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 929;
+		vrLoc = 0;
+	};
+	9C2793A4121C6F75009004AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9C2793A5121C6F75009004AB /* boggle-solve-objc-xcode.s */;
+		name = "boggle-solve-objc-xcode.s: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 295;
+		vrLoc = 1898;
+	};
+	9C2793A5121C6F75009004AB /* boggle-solve-objc-xcode.s */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.asm;
+		name = "boggle-solve-objc-xcode.s";
+		path = "/Users/cwilcox/Projects/boggle-solve-objc-xcode/build/boggle-solve-objc-xcode.build/Debug/boggle-solve-objc-xcode.build/Objects-normal/x86_64/boggle-solve-objc-xcode.s";
+		sourceTree = "<absolute>";
+	};
+	9C2793C4121C728A009004AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32A70AAB03705E1F00C91783 /* boggle-solve-objc-xcode_Prefix.pch */;
+		name = "boggle-solve-objc-xcode_Prefix.pch: 7";
+		rLen = 0;
+		rLoc = 187;
+		rType = 0;
+		vrLen = 188;
+		vrLoc = 0;
+	};
+	9C2793C7121C73C5009004AB /* NDTrie.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {6249, 4654}}";
+			sepNavSelRange = "{21166, 0}";
+			sepNavVisRange = "{20776, 1573}";
+		};
+	};
+	9C2793C8121C73C5009004AB /* NDTrie.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1524, 8398}}";
+			sepNavSelRange = "{17217, 0}";
+			sepNavVisRange = "{16455, 1441}";
+		};
+	};
+	9C27943F121C9222009004AB /* Board.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {902, 484}}";
+			sepNavSelRange = "{303, 0}";
+			sepNavVisRange = "{0, 488}";
+		};
+	};
+	9C279440121C9222009004AB /* Board.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {936, 1417}}";
+			sepNavSelRange = "{754, 0}";
+			sepNavVisRange = "{466, 535}";
+		};
+	};
+	9C2794E2121CB6CE009004AB /* BoggleSolver.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {952, 483}}";
+			sepNavSelRange = "{320, 0}";
+			sepNavVisRange = "{0, 367}";
+		};
+	};
+	9C2794E3121CB6CE009004AB /* BoggleSolver.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {936, 949}}";
+			sepNavSelRange = "{1034, 0}";
+			sepNavVisRange = "{412, 639}";
+		};
+	};
+	9C27952E121DA9EA009004AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9C2794E2121CB6CE009004AB /* BoggleSolver.h */;
+		name = "BoggleSolver.h: 16";
+		rLen = 0;
+		rLoc = 320;
+		rType = 0;
+		vrLen = 367;
+		vrLoc = 0;
+	};
+	9C2795E1121DBA8B009004AB /* BoggleSolver.m:20 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 9C2794E3121CB6CE009004AB /* BoggleSolver.m */;
+		functionName = "_check()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 20;
+		location = "boggle-solve-objc-xcode";
+		modificationTime = 304283854.866826;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	9C2795EE121DBC65009004AB /* boggle-solve-objc-xcode.m:30 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* boggle-solve-objc-xcode.m */;
+		functionName = "main()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 30;
+		location = "boggle-solve-objc-xcode";
+		modificationTime = 304283854.867424;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	9C2795FE121DBD65009004AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9C27936A121C6DCE009004AB /* Dictionary.h */;
+		name = "Dictionary.h: 17";
+		rLen = 0;
+		rLoc = 293;
+		rType = 0;
+		vrLen = 569;
+		vrLoc = 0;
+	};
+	9C279600121DBD65009004AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9C27936B121C6DCE009004AB /* Dictionary.m */;
+		name = "Dictionary.m: 48";
+		rLen = 0;
+		rLoc = 1143;
+		rType = 0;
+		vrLen = 940;
+		vrLoc = 150;
+	};
+	9C279601121DBD65009004AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9C2794E3121CB6CE009004AB /* BoggleSolver.m */;
+		name = "BoggleSolver.m: 30";
+		rLen = 0;
+		rLoc = 979;
+		rType = 0;
+		vrLen = 1243;
+		vrLoc = 181;
+	};
+	9C279602121DBD65009004AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9C279440121C9222009004AB /* Board.m */;
+		name = "Board.m: 97";
+		rLen = 0;
+		rLoc = 2253;
+		rType = 0;
+		vrLen = 978;
+		vrLoc = 1405;
+	};
+	9CCABB9A1223010300ACBC74 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* boggle-solve-objc-xcode.m */;
+		name = "boggle-solve-objc-xcode.m: 18";
+		rLen = 0;
+		rLoc = 539;
+		rType = 0;
+		vrLen = 916;
+		vrLoc = 101;
+	};
+	9CCABB9B1223010300ACBC74 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9C27943F121C9222009004AB /* Board.h */;
+		name = "Board.h: 19";
+		rLen = 0;
+		rLoc = 303;
+		rType = 0;
+		vrLen = 488;
+		vrLoc = 0;
+	};
+	9CCABB9C1223010300ACBC74 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9C27943F121C9222009004AB /* Board.h */;
+		name = "Board.h: 19";
+		rLen = 0;
+		rLoc = 303;
+		rType = 0;
+		vrLen = 488;
+		vrLoc = 0;
+	};
+	C6859EA3029092ED04C91782 /* boggle-solve-objc-xcode.1 */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {635, 975}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 929}";
+		};
+	};
+}

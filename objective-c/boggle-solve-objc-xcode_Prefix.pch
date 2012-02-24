@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'boggle-solve-objc-xcode' target in the 'boggle-solve-objc-xcode' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
