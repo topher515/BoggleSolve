@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require './dictionary.rb'
 
 module Boggle
@@ -28,9 +30,6 @@ end
 class Board
 
   @@size = 4
-  def self.size
-    @@size
-  end
   
   def initialize(board)
     if board.length != Boggle.const_get(:DICE).length
@@ -120,8 +119,8 @@ def main(args)
       puts "Using #{args[1]} as board..."
       b = Board.new(args[1])
     else
-      puts "Using random board with seed #{args[1]}"
-      puts "(If you want to specify a board it must be 16 chars.)"
+      puts "Using random board with seed #{args[1]}" +
+          "(If you want to specify a board it must be 16 chars.)"
       b = Board.random(args[1])
     end
     
