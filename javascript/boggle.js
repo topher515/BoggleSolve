@@ -1,4 +1,4 @@
-load('dictionary.js')
+require('dictionary.js')
 
 dice = [
 "iefyeh",
@@ -111,22 +111,22 @@ function solve(board) {
 function main(args) {
 	if (args.length > 0) {
 		if (args[0].length == 16) {
-			print("Using " + args[0] + " as board...")
+			console.log("Using " + args[0] + " as board...")
 			b = new Board(args[0])
 		} else {
-			print("Using random board with seed " + args[0] + "...")
-			print("(If you want to specify a board it must be 16 chars.)")
+			console.log("Using random board with seed " + args[0] + "...")
+			console.log("(If you want to specify a board it must be 16 chars.)")
 			b = Board.random(args[0])
 		}
 	} else {
-		print("Using random board...")
+		console.log("Using random board...")
 		b = Board.random()
 	}
 	
-	print(b)
+	console.log(b)
 	solved = solve(b)
 	solved.sort()
-	print(solved)
+	console.log(solved)
 }
 
 main(arguments)
