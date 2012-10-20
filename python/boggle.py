@@ -106,7 +106,7 @@ def main(args):
 				" want to specify a board it must be 16 chars.)\n" % args[1])
 			b = Board.random(args[1])
 	else:
-		sys.stderr.write("Using random board.")
+		sys.stderr.write("Using random board.\n")
 		b = Board.random()
 	
 	sys.stderr.write(str(b) + "\n")
