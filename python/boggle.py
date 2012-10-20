@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import random
 import sys
 from time import clock
@@ -38,8 +39,8 @@ class Board(object):
 		if seed:
 			random.seed(seed)
 		board = []
-		for dice in random.sample(dice,dice.length):
-			board.append(random.choice(dice))
+		for die in random.sample(dice,len(dice)):
+			board.append(random.choice(die))
 		return Board(board)
 	
 	def __str__(self):
@@ -48,6 +49,7 @@ class Board(object):
 			if index % self.size == 0 and index != 0:
 				board.append('\n')
 			board.append(char)
+		board.append('\n')
 		return ''.join(board)
 		
 	def at(self,x,y):
@@ -69,8 +71,6 @@ def solve(board):
 			
 		checked[(x,y)] = True
 		checking.append(board.at(x,y))
-		
-		#print '%s (%s,%s)' % (checking,x,y)
 		
 		if not d.checkPrefix(checking):
 			checking.pop()
@@ -99,20 +99,21 @@ def main(args):
 	if len(args) > 1:
 	
 		if len(args[1]) == 16:
-			print "Using %s as board..." % args[1]
+			sys.stderr.write("Using '%s' as board.\n" % args[1])
 			b = Board(args[1])
 		else:
-			print "Using random board with seed %s..." % args[1]
-			print "(If you want to specify a board it must be 16 chars.)"
+			sys.stderr.write("Using random board with seed '%s'. (If you "
+				" want to specify a board it must be 16 chars.)\n" % args[1])
 			b = Board.random(args[1])
 	else:
-		print "Using random board..."
+		sys.stderr.write("Using random board.")
 		b = Board.random()
 	
-	print b
+	sys.stderr.write(str(b) + "\n")
 	solved = solve(b)
 	solved.sort()
-	print solved
+	for s in solved:
+		print s
 	
 if __name__ == "__main__":
 	main(sys.argv)
