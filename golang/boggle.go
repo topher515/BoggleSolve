@@ -49,7 +49,8 @@ type Coord struct {
 }
 
 
-// Stack //
+/// Stack ///
+
 type Stack struct {
 	top *Element
 	size int
@@ -82,22 +83,7 @@ func (s *Stack) Pop() (value interface{}) {
 	return nil
 }
 
-
-// Dictionary
-func LoadFakeDictionary() ([]string) {
-	var dict = []string{
-		"aardvaark",
-		"abacus",
-		"pale",
-		"test",
-		"toast",
-		"zylsd",
-		"whisk",
-	}
-	sort.Strings(dict)
-	// TODO: Sort dictionary
-	return dict
-}
+/// END STACK ///
 
 
 
@@ -168,7 +154,7 @@ func At(board [BOARD_LEN]string, x int, y int) (string) {
 }
 
 
-func SolveRecurse(dict []string, board [BOARD_LEN]string, x int, y int, current string, touched map[Coord] bool, found *map[string] bool) {
+func SolveRecurse(dict []string, board [BOARD_LEN]string, x int, y int, current string, touched *map[Coord] bool, wordChan *chan string) {
 	
 
 	if x < 0 || x >= BOARD_SIZE {
@@ -190,7 +176,8 @@ func SolveRecurse(dict []string, board [BOARD_LEN]string, x int, y int, current 
 			return 
 		}
 		if possibleWord == current {
-			(*found)[possibleWord] = true
+			(*wordChan) <- possibleWord
+			//(*found)[possibleWord] = true
 		}
 	} else { // Current == 1
 		panic("Sheet guys")
@@ -201,45 +188,66 @@ func SolveRecurse(dict []string, board [BOARD_LEN]string, x int, y int, current 
 	coord.x = x
 	coord.y = y
 
-	touched[coord] = true
+	(*touched)[coord] = true
 
 	for i := -1; i <= 1; i++ {
 		for j := -1; j <= 1; j++ {
 			var nextCoord Coord
 			nextCoord.x = x+i
 			nextCoord.y = y+j
-			if touched[nextCoord] {
+			if (*touched)[nextCoord] {
 				continue
 			}
-			SolveRecurse(dict, board, nextCoord.x, nextCoord.y, current, touched, found)
+			SolveRecurse(dict, board, nextCoord.x, nextCoord.y, 
+											current, touched, wordChan)
 		}
 	}
 
-	touched[coord] = false
+	(*touched)[coord] = false
 	//fmt.Println(current)
 	current = current[0:len(current)]
 }
 
 
+func StartSolveRoutine(dict []string, board [BOARD_LEN]string, x int, y int, wordChan *chan string) {
+	touched := make(map[Coord] bool)
+	SolveRecurse(dict, board, x, y, "", &touched, wordChan)
+	close(*wordChan)
+}
+
+
 func Solve(dict []string, board [BOARD_LEN]string) ([]string) {
 
-	current := ""
-	touched := map[Coord] bool{}
-	found := map[string] bool{}
+	foundList := []string{}
+	wordChans := []chan string{}
 
-
+	// Start a goroutine for each letter on the board
 	for x := 0; x <= BOARD_SIZE; x++ {
 		for y := 0; y <= BOARD_SIZE; y++ {
-			SolveRecurse(dict, board, x, y, current, touched, &found)
+			wordChan := make(chan string, 100)
+			go StartSolveRoutine(dict, board, x, y, &wordChan)
+			wordChans = append(wordChans, wordChan)
 		}
 	}
 
-	foundList := make([]string, len(found))
-	i := 0
-    for k, _ := range found {
-        foundList[i] = k
-        i++
-    }
+	// Keep checking word channels until they're all closed
+	// append foundWords as they're found
+	for {
+		allClosed := true
+		for _, wordChan := range wordChans {
+
+			foundWord, ok := <-wordChan
+			if ok {
+				foundList = append(foundList, foundWord)
+				allClosed = false
+			}
+		}
+		if allClosed {
+			break
+		}
+	}
+
+
 	return foundList
 } 
 
@@ -251,12 +259,9 @@ func main() {
 	dict, _ := LoadDictionary()
 	board := Random()
 
-	fmt.Println("Solving for board:\n", board)
+	fmt.Println("Solving for board: ", board)
 
-	fmt.Println(Solve(dict, board))
-
-	//fmt.Println(GetPrefixWord(dict, "zadz"))
-
-
-	//board := "jkdsvjkawoiqw"
+	solved := Solve(dict, board)
+	fmt.Println(solved)
+	
 }
