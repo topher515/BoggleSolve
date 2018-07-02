@@ -1,14 +1,2 @@
 
-I like to write a boggle solver in every new language I learn.
-
-Doing so provides a brief overview of some important stuff
-
- - Classes and class instantiation
- - Class methods (and/or) static methods
- - Recursion
- - Importing libraries
- - Filesystem IO (for reading the dictionary)
-
-### TODO:
-
- - Write README's for each language to get people running  
+I like to write a boggle solver in every new language with which I experiment.
