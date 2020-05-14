@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "82cce44416bcdf09fbea022d94387bb938fffde114f1fa52520d19a13273b9c8"
+            "sha256": "51ff3c93cf8be7f5e0ff810127308c778b09d3b0f403fde756560a71c82360b4"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.6"
+            "python_version": "3.7"
         },
         "sources": [
             {
@@ -18,10 +18,10 @@
     "default": {
         "pygtrie": {
             "hashes": [
-                "sha256:01f2a8f41b1c9fd6cc29edae5c908d2cd6cc69d0bf31e3dea6ea31fe97fff9d3"
+                "sha256:2204dbd95584f67821da5b3771c4305ac5585552b3230b210f1f05322608db2c"
             ],
             "index": "pypi",
-            "version": "==2.2"
+            "version": "==2.3.3"
         }
     },
     "develop": {}

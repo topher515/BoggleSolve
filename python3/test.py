@@ -1,6 +1,6 @@
 import unittest
 from io import StringIO
-from boggle_solve import solve, load_dict_as_trie
+from boggle_solve import solve, load_words_as_trie
 
 class TestStringMethods(unittest.TestCase):
 
@@ -27,7 +27,7 @@ class TestStringMethods(unittest.TestCase):
 
         dict_file = StringIO('\n'.join(words + ('extras', 'foobar', 'benedict')))
 
-        trie = load_dict_as_trie(dict_file)
+        trie = load_words_as_trie(dict_file)
 
         self.assertEqual(set(words), solve(board, trie, size=4))
 

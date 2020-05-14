@@ -1,4 +1,8 @@
+#!env python
+
 '''Solve boggle boards'''
+
+from typing import TextIO
 import sys
 import string
 import argparse
@@ -18,7 +22,7 @@ SIZE = 4
 IGNORE_PROPER_NAMES = True
 
 
-def solve(board, dict_trie, size):
+def solve(board: str, dict_trie: pygtrie.CharTrie, size: int):
     '''board is a 16-digit string; dict_trie is a pygtrie representation of a word dictionary'''
 
     def board_at(x, y):
@@ -34,7 +38,7 @@ def solve(board, dict_trie, size):
     checking = []
     checked = {}
 
-    def check(x, y):
+    def check(x:int, y:int):
         '''
         Check the board at position (x, y) for all words which can be built
         '''
@@ -62,13 +66,13 @@ def solve(board, dict_trie, size):
     return words
 
 
-def generate_random_board(dice):
+def generate_random_board(dice:tuple):
     '''Generate random board from dice'''
     return ''.join([choice(die) for die in sample(dice, len(dice))])
 
 
-def load_dict_as_trie(dict_file):
-    '''Load dictionary as Trie data type from a dictionary file'''
+def load_words_as_trie(dict_file: TextIO):
+    '''Load words dictionary file as Trie data type'''
     trie = pygtrie.CharTrie()
     for line in dict_file:
         if IGNORE_PROPER_NAMES and line[0].upper() == line[0]:
@@ -77,7 +81,7 @@ def load_dict_as_trie(dict_file):
     return trie
 
 
-def board_type(value):
+def board_type(value:str):
     '''Enforce a 16 char requirement in board input'''
     str_val = str(value)
     if len(str_val) != 16:
@@ -95,16 +99,16 @@ def main(args):
 
     seed = parsed.seed if parsed.seed else ''.join(sample(string.ascii_letters + string.digits, 5))
     random.seed(seed)
-    trie = load_dict_as_trie(parsed.dict)
+    trie = load_words_as_trie(parsed.dict)
 
     if parsed.board:
-        print('Solving for board: "{board}"'.format(board=parsed.board))
-        solutions = solve(parsed.board, trie, SIZE)
+        board = parsed.board
+        print(f'Solving for board: "{board}"', file=sys.stderr)
     else:
         board = generate_random_board(DICE)
-        print('Used random seed "{seed}" to generate board: "{board}". Solving...'
-            .format(seed=seed, board=board))
-        solutions = solve(board, trie, SIZE)
+        print(f'Used random seed "{seed}" to generate board: "{board}". Solving...', file=sys.stderr)
+    
+    solutions = solve(board, trie, SIZE)
 
     for word in sorted(solutions):
         print(word)
