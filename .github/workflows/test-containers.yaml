@@ -9,11 +9,7 @@ on:
   push:
 
 env:
-  APP_NAME: puzzlive-io
-  IMAGE: ghcr.io/${{ github.repository_owner }}/puzzlive-io
-  CLUSTER_NAME: 384617d7-d5d3-4c95-8502-44f56f28983a
-  BUILD_DIR: backends/puzzlive-io
-  HELM_DIR: deploy/do-k8s-puzzlive-io
+  DICT_URL: https://gist.githubusercontent.com/topher515/067645a32619fc05f47664c709503b3d/raw/48dc8b02d87ca3f38b20e34cd1cc4cf487eccb49/words
 
 jobs:
 
@@ -27,9 +23,8 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-    - run: "./test_all_containers.py TestViaDocker.test_python2"
+    - run: curl $DICT_URL ./dict.txt
+    - run: ./test_containers.py TestViaDocker.test_python2 $PWD/dict.txt 
 
   test-python3:
 
@@ -41,8 +36,8 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
-
-    - run: "./test_all_containers.py TestViaDocker.test_python3"
+    - run: curl $DICT_URL ./dict.txt
+    - run: ./test_containers.py TestViaDocker.test_python3 $PWD/dict.txt 
 
   test-hylang:
 
@@ -54,5 +49,5 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
-
-    - run: "./test_all_containers.py TestViaDocker.test_hylang"
+    - run: curl $DICT_URL ./dict.txt
+    - run: ./test_containers.py TestViaDocker.test_hylang $PWD/dict.txt 
