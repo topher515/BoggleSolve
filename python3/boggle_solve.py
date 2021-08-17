@@ -1,4 +1,4 @@
-#!env python
+#!/usr/bin/env python
 
 '''Solve boggle boards'''
 
@@ -97,7 +97,7 @@ def main(args):
 
     parsed = parser.parse_args(args)
 
-    seed = parsed.seed if parsed.seed else ''.join(sample(string.ascii_letters + string.digits, 5))
+    seed = parsed.seed or ''.join(sample(string.ascii_letters + string.digits, 5))
     random.seed(seed)
     trie = load_words_as_trie(parsed.dict)
 

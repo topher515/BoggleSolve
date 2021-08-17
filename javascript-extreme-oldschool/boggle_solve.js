@@ -1,4 +1,4 @@
-require('dictionary.js')
+require('./dictionary.js')
 
 dice = [
 "iefyeh",

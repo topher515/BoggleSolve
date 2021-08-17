@@ -110,7 +110,7 @@ def main(args):
 		b = Board.random()
 	
 	sys.stderr.write(str(b) + "\n")
-	solved = solve(b)
+	solved = list(set(solve(b)))
 	solved.sort()
 	for s in solved:
 		print s
