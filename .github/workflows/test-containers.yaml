@@ -1,0 +1,57 @@
+
+name:  Boggle Solve testing
+
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+on:  
+  push:
+
+env:
+  APP_NAME: puzzlive-io
+  IMAGE: ghcr.io/${{ github.repository_owner }}/puzzlive-io
+  CLUSTER_NAME: 384617d7-d5d3-4c95-8502-44f56f28983a
+  BUILD_DIR: backends/puzzlive-io
+  HELM_DIR: deploy/do-k8s-puzzlive-io
+
+jobs:
+
+  test-python2:
+
+    runs-on: ubuntu-latest
+
+    steps:
+        
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - run: "./test_all_containers.py TestViaDocker.test_python2"
+
+  test-python3:
+
+    runs-on: ubuntu-latest
+
+    steps:
+        
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - run: "./test_all_containers.py TestViaDocker.test_python3"
+
+  test-hylang:
+
+    runs-on: ubuntu-latest
+
+    steps:
+        
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - run: "./test_all_containers.py TestViaDocker.test_hylang"

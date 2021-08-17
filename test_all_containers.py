@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import unittest
 from subprocess import run
 
@@ -14,14 +14,19 @@ def build_bogglesolve_image(dir_name: str):
 
 class TestViaDocker(unittest.TestCase):
 
+    def test_python2(self):
+        build_bogglesolve_image('python2')
+        proc = run_bogglesolve_container('python2', [TEST_BOARD])
+        self.assertEquals(proc.stdout, EXPECTED_SOLUTIONS)
+
     def test_python3(self):
         build_bogglesolve_image('python3')
         proc = run_bogglesolve_container('python3', ["--board", TEST_BOARD])
         self.assertEquals(proc.stdout, EXPECTED_SOLUTIONS)
 
-    def test_python2(self):
-        build_bogglesolve_image('python2')
-        proc = run_bogglesolve_container('python2', [TEST_BOARD])
+    def test_hylang(self):
+        build_bogglesolve_image('hylang')
+        proc = run_bogglesolve_container('hylang', ["--board", TEST_BOARD])
         self.assertEquals(proc.stdout, EXPECTED_SOLUTIONS)
 
 

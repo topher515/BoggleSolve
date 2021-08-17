@@ -1,0 +1,72 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "8af0798d3c11af5d2785f626b43a1d645e1143f777cecfbe4f8d07126da7e14f"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.9"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "appdirs": {
+            "hashes": [
+                "sha256:7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41",
+                "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"
+            ],
+            "version": "==1.4.4"
+        },
+        "astor": {
+            "hashes": [
+                "sha256:070a54e890cefb5b3739d19f30f5a5ec840ffc9c50ffa7d23cc9fc1a38ebbfc5",
+                "sha256:6a6effda93f4e1ce9f618779b2dd1d9d84f1e32812c23a29b3fff6fd7f63fa5e"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==0.8.1"
+        },
+        "colorama": {
+            "hashes": [
+                "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b",
+                "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
+            "version": "==0.4.4"
+        },
+        "funcparserlib": {
+            "hashes": [
+                "sha256:b7992eac1a3eb97b3d91faa342bfda0729e990bd8a43774c1592c091e563c91d"
+            ],
+            "version": "==0.3.6"
+        },
+        "hy": {
+            "hashes": [
+                "sha256:1b72863754fb57e2dd275a9775bf621cb50a565e76733a2e74e9954e7fbb060e",
+                "sha256:f4c6cdf6ee04e6d94fd8b5c6e8389bd99df4c672d570b3eb847615a5f882047c"
+            ],
+            "index": "pypi",
+            "version": "==0.20.0"
+        },
+        "pygtrie": {
+            "hashes": [
+                "sha256:43205559d28863358dbbf25045029f58e2ab357317a59b11f11ade278ac64692"
+            ],
+            "index": "pypi",
+            "version": "==2.4.2"
+        },
+        "rply": {
+            "hashes": [
+                "sha256:28ffd11d656c48aeb8c508eb382acd6a0bd906662624b34388751732a27807e7",
+                "sha256:2a808ac25a4580a9991fc304d64434e299a8fc75760574492f242cbb5bb301c9"
+            ],
+            "version": "==0.7.8"
+        }
+    },
+    "develop": {}
+}
