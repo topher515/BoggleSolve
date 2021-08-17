@@ -23,7 +23,7 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - run: curl $DICT_URL ./dict.txt
+    - run: curl $DICT_URL > ./dict.txt
     - run: ./test_containers.py TestViaDocker.test_python2 $PWD/dict.txt 
 
   test-python3:
@@ -36,7 +36,7 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - run: curl $DICT_URL ./dict.txt
+    - run: curl $DICT_URL > ./dict.txt
     - run: ./test_containers.py TestViaDocker.test_python3 $PWD/dict.txt 
 
   test-hylang:
@@ -49,5 +49,5 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - run: curl $DICT_URL ./dict.txt
+    - run: curl $DICT_URL > ./dict.txt
     - run: ./test_containers.py TestViaDocker.test_hylang $PWD/dict.txt 
