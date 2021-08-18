@@ -34,7 +34,7 @@
         (.append checking (board-at x y))
 
         (setv possible-word ((. "" join) checking))
-        (if (and (> (len possible-word) MIN_WORD_LENGTH) (dict-trie.has_key possible-word))
+        (if (and (>= (len possible-word) MIN_WORD_LENGTH) (dict-trie.has_key possible-word))
             ; Found a word!
             (.add words possible-word))
 

@@ -39,18 +39,18 @@ jobs:
     - run: curl $DICT_URL > ./dict.txt
     - run: ./test_containers.py TestViaDocker.test_python3 $PWD/dict.txt 
 
-  # test-hylang:
+  test-hylang:
 
-  #   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  #   steps:
+    steps:
         
-  #   - uses: actions/checkout@v2
-  #   - uses: actions/setup-python@v2
-  #     with:
-  #       python-version: 3.9
-  #   - run: curl $DICT_URL > ./dict.txt
-  #   - run: ./test_containers.py TestViaDocker.test_hylang $PWD/dict.txt 
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - run: curl $DICT_URL > ./dict.txt
+    - run: ./test_containers.py TestViaDocker.test_hylang $PWD/dict.txt 
 
   test-ruby:
 

@@ -90,8 +90,9 @@ def solve(board)
       return
     end
     
-    if checking.length >= Boggle.const_get(:MIN_WORD_LENGTH) and d.check_word(checking.join '')
-      words.push(checking.join '')
+    possible_word = checking.join ''
+    if possible_word.length >= Boggle.const_get(:MIN_WORD_LENGTH) and d.check_word(possible_word)
+      words.push(possible_word)
     end
     
     for y_delta in [-1,0,1] do

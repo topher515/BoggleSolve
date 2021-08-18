@@ -76,9 +76,11 @@ def solve(board):
 			checking.pop()
 			del checked[(x,y)]
 			return
+
+		possible_word = ''.join(checking)
 			
-		if len(checking) >= min_word_length and d.checkWord(checking):
-			words.append(''.join(checking))
+		if len(possible_word) >= min_word_length and d.checkWord(possible_word):
+			words.append(possible_word)
 		
 		for y_delta in (-1,0,1):
 			for x_delta in (-1,0,1):

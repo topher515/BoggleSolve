@@ -5,7 +5,7 @@ from subprocess import run
 
 from run_container import image_name, run_bogglesolve_container, DEFAULT_DICT_PATH
 
-EXPECTED_SOLUTIONS = b'aal\naalii\nail\naile\naisle\nalcine\nale\nalen\nalias\nalien\nalin\naln\nani\nanis\naquiline\ncilia\ncine\ncinel\nclag\nclan\nclang\ncline\nclinia\nelain\nels\nelsin\nens\ngain\ngaine\ngains\ngal\ngale\ngalenic\ngali\ngan\ngas\nilia\niliau\ning\ninial\ninquiline\nisle\nlag\nlai\nlain\nlaine\nlan\nlas\nlei\nlenis\nlens\nliang\nlie\nlien\nliin\nlin\nline\nlinie\nlis\nnaa\nnag\nnail\nnain\nnais\nnasi\nnei\nngai\nnil\nquag\nquail\nquale\nquan\nquasi\nquila\nquin\nquinia\nquinic\nquis\nquisle\nsaa\nsag\nsai\nsail\nsain\nsal\nsale\nsalic\nsaline\nsan\nsang\nsial\nsialic\nsil\nsile\nsilen\nsileni\nsilenic\nsiliqua\nsin\nsina\nsinal\nsine\nsing\nsla\nslag\nslain\nslang\nsline\nsnag\nsnail\nsnails\nsquail\nsquin\nsuine\nusnic\n'
+EXPECTED_SOLUTIONS = b'aal\naalii\nail\naile\naisle\nalcine\nale\nalen\nalias\nalien\nalin\naln\nani\nanis\naquiline\ncilia\ncine\ncinel\nclag\nclan\nclang\ncline\nclinia\nelain\nels\nelsin\nens\ngain\ngaine\ngains\ngal\ngale\ngalenic\ngali\ngan\ngas\nilia\niliau\ning\ninial\ninquiline\nisle\nlag\nlai\nlain\nlaine\nlan\nlas\nlei\nlenis\nlens\nliang\nlie\nlien\nliin\nlin\nline\nlinie\nlis\nnaa\nnag\nnail\nnain\nnais\nnasi\nnei\nngai\nnil\nqua\nquag\nquail\nquale\nquan\nquasi\nquila\nquin\nquinia\nquinic\nquis\nquisle\nsaa\nsag\nsai\nsail\nsain\nsal\nsale\nsalic\nsaline\nsan\nsang\nsial\nsialic\nsil\nsile\nsilen\nsileni\nsilenic\nsiliqua\nsin\nsina\nsinal\nsine\nsing\nsla\nslag\nslain\nslang\nsline\nsnag\nsnail\nsnails\nsquail\nsquin\nsuine\nusnic\n'
 TEST_BOARD = 'sgnscqaiiliaensu'
 
 

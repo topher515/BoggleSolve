@@ -48,7 +48,7 @@ def solve(board: str, dict_trie: pygtrie.CharTrie, size: int):
         checking.append(board_at(x, y))
         possible_word = ''.join(checking)
 
-        if len(checking) >= MIN_WORD_LENGTH and dict_trie.has_key(possible_word):
+        if len(possible_word) >= MIN_WORD_LENGTH and dict_trie.has_key(possible_word):
             words.add(possible_word)
 
         if dict_trie.has_subtrie(possible_word):
