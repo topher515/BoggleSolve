@@ -25,11 +25,11 @@ module Boggle
   MIN_WORD_LENGTH = 3
 end
 
+SIZE = 4
 
 
 class Board
 
-  @@size = 4
   
   def initialize(board)
     if board.length != Boggle.const_get(:DICE).length
@@ -52,7 +52,7 @@ class Board
   def to_s
     board = []
     for index in (0...@board.length) do
-      if index % @@size == 0 and index != 0
+      if index % SIZE == 0 and index != 0
         board.push "\n"
       end
       board.push @board[index]
@@ -61,10 +61,10 @@ class Board
   end
   
   def at(x,y)
-    if x >= @@size or y >= @@size or x < 0 or y < 0
+    if x >= SIZE or y >= SIZE or x < 0 or y < 0
       return nil
     end
-    char = @board[x + @@size*y]
+    char = @board[x + SIZE*y]
     char == 'q' ? 'qu' : char
   end
   
@@ -103,8 +103,8 @@ def solve(board)
     checking.pop()
   end
   
-  for x in (0...Board.size)
-    for y in (0...Board.size)
+  for x in (0...SIZE)
+    for y in (0...SIZE)
       check(d,board,words,x,y,[],{})
     end
   end
@@ -114,22 +114,21 @@ end
   
 
 def main(args)
-  if args.length > 1
-    if args[1].length == 16
-      puts "Using #{args[1]} as board..."
-      b = Board.new(args[1])
+  if args.length > 0
+    if args[0].length == 16
+      STDERR.puts "Using #{args[0]} as board...\n"
+      b = Board.new(args[0])
     else
-      puts "Using random board with seed #{args[1]}" +
-          "(If you want to specify a board it must be 16 chars.)"
-      b = Board.random(args[1])
+      STDERR.puts "Using random board with seed '#{args[0]}'" +
+          " (If you want to specify a board it must be 16 chars.)"
+      b = Board.random(args[0])
     end
     
   else
-    puts "Using random board..."
+    STDERR.puts "Using random board..."
     b = Board.random()
   end
   
-  puts b
   solved = solve(b)
   solved = solved.to_set().to_a().sort()
   puts solved

@@ -29,14 +29,20 @@ class TestViaDocker(unittest.TestCase):
         proc = run_bogglesolve_container('python3', ["--board", TEST_BOARD], dict_path=self.dict_words_path)
         self.assertEqual(proc.stdout, EXPECTED_SOLUTIONS)
 
-    def test_hylang(self):
-        build_bogglesolve_image('hylang')
-        proc = run_bogglesolve_container('hylang', ["--board", TEST_BOARD], dict_path=self.dict_words_path)
+    def test_ruby(self):
+        build_bogglesolve_image('ruby')
+        proc = run_bogglesolve_container('ruby', [TEST_BOARD], dict_path=self.dict_words_path)
         self.assertEqual(proc.stdout, EXPECTED_SOLUTIONS)
+
+    # def test_hylang(self):
+    #     build_bogglesolve_image('hylang')
+    #     proc = run_bogglesolve_container('hylang', ["--board", TEST_BOARD], dict_path=self.dict_words_path)
+    #     self.assertEqual(proc.stdout, EXPECTED_SOLUTIONS)
 
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
+    # If the last cmd line arg does not start with `Test...` or `test...` assume it is a dictionary of words
+    if len(sys.argv) > 1 and sys.argv[-1][0:4].lower() != "test":
         TestViaDocker.dict_words_path = sys.argv.pop()
     unittest.main(verbosity=2)
