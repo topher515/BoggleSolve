@@ -34,10 +34,10 @@ class TestViaDocker(unittest.TestCase):
         proc = run_bogglesolve_container('ruby', [TEST_BOARD], dict_path=self.dict_words_path)
         self.assertEqual(proc.stdout, EXPECTED_SOLUTIONS)
 
-    # def test_hylang(self):
-    #     build_bogglesolve_image('hylang')
-    #     proc = run_bogglesolve_container('hylang', ["--board", TEST_BOARD], dict_path=self.dict_words_path)
-    #     self.assertEqual(proc.stdout, EXPECTED_SOLUTIONS)
+    def test_hylang(self):
+        build_bogglesolve_image('hylang')
+        proc = run_bogglesolve_container('hylang', ["--board", TEST_BOARD], dict_path=self.dict_words_path)
+        self.assertEqual(proc.stdout, EXPECTED_SOLUTIONS)
 
 
 
