@@ -10,7 +10,9 @@ TEST_BOARD = 'sgnscqaiiliaensu'
 
 
 def build_bogglesolve_image(dir_name: str):
-    run(["docker", "build", "--rm", "-t", image_name(dir_name), "."], check=True, cwd=f"./{dir_name}")
+    cmd = ["docker", "build", "--rm", "-t", image_name(dir_name), "."]
+    print(' '.join(cmd), file=sys.stderr)
+    run(cmd, check=True, cwd=f"./{dir_name}")
 
 
 class TestViaDocker(unittest.TestCase):

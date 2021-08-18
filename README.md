@@ -8,3 +8,4 @@ I like to write a boggle solver in new languages with which I experiment.
 - 2018/07 - Add `python3`
 - 2012/10 - Add `ruby`
 - 2012/02 - Add `objective-c`
+- Pre-2012? - Add javascript for Rhino

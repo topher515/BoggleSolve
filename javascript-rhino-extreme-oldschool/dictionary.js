@@ -96,5 +96,4 @@ Dictionary.fromFile = function(filename) {
 Dictionary.load = function() {
 	return Dictionary.fromFile('/usr/share/dict/words')
 }
-this.Dictionary = Dictionary
 //dict = Dictionary.load()
