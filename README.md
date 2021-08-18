@@ -2,7 +2,8 @@
 
 I like to write a boggle solver in new languages with which I experiment.
 
-- 2021/08 - Add automated testing for `python2`, `python3`, `ruby`
+- 2021/08 - Add `typescript`
+- 2021/08 - Add automated testing for `python2`, `python3`, `ruby`, `hylang`
 - 2021/08 - Add [`hylang`](https://docs.hylang.org/en/alpha/)
 - 2020/05 - Cleanup `python3`
 - 2018/07 - Add `python3`

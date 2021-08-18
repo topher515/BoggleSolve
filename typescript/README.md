@@ -1,0 +1,1 @@
+consider @committed/trie-search
