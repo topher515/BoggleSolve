@@ -1,0 +1,1 @@
+Execute `go run boggle.go`
