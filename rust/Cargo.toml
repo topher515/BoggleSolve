@@ -1,0 +1,13 @@
+[package]
+name = "boggle_solve"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "3.0.0-beta.4"
+rand = "0.8.4"
+# rand_distr = "0.3.0"
+# rand_isaac = "0.3.0"
+rand_xorshift = "0.3.0"
