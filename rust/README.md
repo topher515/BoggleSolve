@@ -1,0 +1,1 @@
+- Run while deving: `cargo run`
