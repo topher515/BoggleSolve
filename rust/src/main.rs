@@ -1,20 +1,26 @@
+// LEARN:
+// TODO: Learn this probably: https://rust-unofficial.github.io/too-many-lists/
 
 use clap::{App, Arg};
 use rand::{SeedableRng};
 use rand_xorshift::XorShiftRng;
 use rand::seq::SliceRandom;
 use std::fs::{File};
+use std::collections::HashSet;
 
 // LEARN: look for a file named `my.rs` or `my/mod.rs` and will
 // insert its contents inside a module named `my` under this scope
 // Seehttps://doc.rust-lang.org/rust-by-example/mod/split.html
 mod prefix_dict;
+use prefix_dict::PrefixDict as PrefixDict;
 
 const SIZE : usize = 4;
+// const SIZE_USIZE : usize = 4;
 const BOARD_LEN : usize = SIZE * SIZE;
-// const MIN_WORD_LENGTH : u8 = 3;
+const MIN_WORD_LENGTH : usize = 3;
 const DEFAULT_DICT : &str = "/usr/share/dict/words";
 
+type Board = [char; BOARD_LEN];
 type Die = [char; 6];
 const DICE : [Die; BOARD_LEN]= [
     ['i','e','f','y','e','h'], 
@@ -35,10 +41,17 @@ const DICE : [Die; BOARD_LEN]= [
     ['w','i','r','g','l','u']
 ];
 
+const DIRS : [[i32; 2]; 8] = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
 
-
-type Board = [char; 16];
-
+// LEARN: To use this in as hashset these methods must be implemented,
+// but the compiler can do it for us
+// see: https://stackoverflow.com/a/31835987/273637
+//      https://stackoverflow.com/a/31846475/273637
+#[derive(PartialEq, Eq, Hash, Clone, Copy)]
+struct Coord {
+    x: i32,
+    y: i32
+}
 
 
 fn generate_random_board(mut rng: XorShiftRng) -> Board {
@@ -55,6 +68,137 @@ fn generate_random_board(mut rng: XorShiftRng) -> Board {
         board[i] = die_char
     }
     board
+}
+
+
+
+struct SearchState {
+    partial_word_vec: Vec<String>,
+    prev_coords: HashSet<Coord>,
+    at_coord: Coord,
+    dir_index: usize,
+}
+
+
+fn solve_from_one_die(board: Board, prefdict: &PrefixDict, &start_coord: &Coord) -> HashSet<String> {
+
+    let mut words : HashSet<String> = HashSet::new();
+
+    let board_at = |coord:Coord| -> Option<String> {
+        if coord.x >= (SIZE as i32) || coord.y >= (SIZE as i32) || coord.x < 0 || coord.y < 0 {
+            Option::None
+        } else {
+            let char_at : char = board[(coord.x as usize) + SIZE * (coord.y as usize)];
+            match char_at {
+                'q' => Some(String::from("qu")),
+                _ => Some(char_at.to_string())
+            }
+        }
+    };
+
+    // Return a new search state item, by finding the next die to examine
+    let next = |mut curr_search_state: SearchState| -> (SearchState, Option<SearchState>) {
+
+        let mut at_coord : Coord;
+        let char_string : String;
+        // Find next valid
+        loop {
+            if curr_search_state.dir_index == DIRS.len() {
+                // This search state has gone through all possible directions
+                return (curr_search_state, None)
+            }
+
+            let [x_d, y_d] = DIRS[curr_search_state.dir_index];
+            at_coord = Coord { x: curr_search_state.at_coord.x + x_d, y: curr_search_state.at_coord.y + y_d };
+            if curr_search_state.prev_coords.contains(&at_coord) {
+                // We already examined this die while building this word
+                curr_search_state.dir_index += 1
+            
+            } else {
+                match board_at(at_coord) {
+                    None => curr_search_state.dir_index += 1,
+                    Some(strn) => {
+                        char_string = strn;
+                        break;
+                    }
+                };
+            }
+        };
+        let mut partial_word_vec = curr_search_state.partial_word_vec.clone();
+        partial_word_vec.push(char_string);
+        let mut prev_coords = curr_search_state.prev_coords.clone();
+        prev_coords.insert(at_coord);
+        (
+            curr_search_state,
+            Some(SearchState {
+                partial_word_vec, 
+                at_coord,
+                prev_coords,
+                dir_index: 0 
+            })
+        )
+    };
+
+    let mut search_state_stack:  Vec<SearchState> = vec![];
+
+    let at_coord = Coord { x: start_coord.x, y: start_coord.y };
+    let partial_word_vec = vec![board_at(at_coord).unwrap()];
+    let dir_index = 5; // set so the next cycle is [1,0] 
+    let prev_coords = HashSet::new();
+    search_state_stack.push(
+        SearchState { 
+            partial_word_vec, 
+            at_coord,
+            prev_coords,
+            dir_index 
+        }
+    );
+
+    while search_state_stack.len() > 0 {
+
+        let mut next_search_state : Option<SearchState> = None;
+        let possible_word : String;
+        {
+            // LEARN: We have to pop (and later re-push) the search state object because 
+            // this block needs to *own* the reference to the search state
+            let last_search_state = search_state_stack.pop().unwrap();
+            possible_word = last_search_state.partial_word_vec.join("");
+
+            // LEARN: Note .len() only valid for ascii chars, since it returns byte count
+            if possible_word.len() >= MIN_WORD_LENGTH && prefdict.contains(&possible_word) {
+                words.insert(possible_word.clone());
+            }
+            if prefdict.contains_prefix(&possible_word) {
+
+                match next(last_search_state) {
+                    (last_search_state, next)=> {
+                        search_state_stack.push(last_search_state);
+                        next_search_state = next;
+                    }
+                };
+            }
+        }
+
+        match next_search_state {
+            None => { search_state_stack.pop(); } 
+            Some(search_state) => { search_state_stack.push(search_state) }
+        };
+    }
+    words
+}
+
+
+fn solve(board: Board, prefdict: &PrefixDict) -> Vec<String> {
+    
+    let words : HashSet<String> = HashSet::new();
+
+    for i in 0..SIZE {
+        for j in 0..SIZE {
+            words.union(&solve_from_one_die(board, prefdict, &Coord { x: i as i32, y: j as i32 }));
+        }
+    }
+
+    words.into_iter().collect()
 }
 
 
@@ -115,13 +259,12 @@ fn main() {
 
     let dict_path = matches.value_of("dict").expect("Missing dict path");
     let words_file = File::open(dict_path).expect(&format!("Could not open file '{}'", dict_path)[..]);
-    let prefdict = prefix_dict::PrefixDict::new(words_file);
+    let prefdict = PrefixDict::new(words_file);
 
-    
-    // solutions = solve(board, trie, SIZE)
+    let solutions = solve(board, &prefdict);
 
-    // for word in sorted(solutions):
-    //     print(word)
-
+    for word in solutions {
+        println!("{}", word);
+    };
 
 }

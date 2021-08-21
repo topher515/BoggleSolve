@@ -26,8 +26,16 @@ impl PrefixDict {
     }
 
     #[inline]
-    pub fn contains_prefix(&self, prefix: &str) -> bool {
+    pub fn contains_prefix(&self, prefix: &String) -> bool {
         match self.trie.subtrie(prefix) {
+            Some(_value) => true,
+            None => false
+        }
+    }
+
+    #[inline]
+    pub fn contains(&self, prefix: &String) -> bool {
+        match self.trie.get(prefix) {
             Some(_value) => true,
             None => false
         }

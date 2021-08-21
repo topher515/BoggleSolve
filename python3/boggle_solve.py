@@ -53,7 +53,7 @@ def solve(board: str, dict_trie: pygtrie.CharTrie, size: int):
 
         if dict_trie.has_subtrie(possible_word):
             # We must go deeper!
-            checked[(x, y)] = True
+            checked[(x, y)] = True # You cannot use the same die twice in a single boggle word
             for x_d, y_d in ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)):
                 check(x+x_d, y+y_d)
             del checked[(x, y)]
