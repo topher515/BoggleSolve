@@ -1,0 +1,20 @@
+
+A B C D
+E F G H
+I J K L
+M N O P
+
+
+{
+    partial_word_vec: ["A"],
+    prev_coords: [],
+    at_coord: { x:0, y: 0 },
+    dir_cycle_index: 0,
+}
+
+{
+    partial_word_vec: ["B"],
+    prev_coords: [{ x: 0, y: 0}],
+    at_coord: { x:1, y: 0 },
+    dir_cycle: [1,1],
+}

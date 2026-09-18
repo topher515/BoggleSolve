@@ -162,7 +162,6 @@ fn solve_from_one_die(board: Board, prefdict: &PrefixDict, &start_coord: &Coord)
 
     while search_state_stack.len() > 0 {
 
-        // let possible_word : String;
         {
             // LEARN: We have to pop (and later re-push) the search state object because 
             // this block needs to *own* the reference to the search state
@@ -178,8 +177,10 @@ fn solve_from_one_die(board: Board, prefdict: &PrefixDict, &start_coord: &Coord)
             if possible_word.len() >= MIN_WORD_LENGTH && prefdict.contains(&possible_word) {
                 words.insert(possible_word.clone());
             }
+
             if prefdict.contains_prefix(&possible_word) {
 
+                // Find the next unvisited die
                 match next(last_search_state) {
                     (_last_search_state, None)=> {
                         
@@ -201,6 +202,8 @@ fn solve_from_one_die(board: Board, prefdict: &PrefixDict, &start_coord: &Coord)
 
             } else {
 
+                // This die is not part of a valid word, setup to check
+                // the next die
                 match search_state_stack.pop() {
                     Some(mut prev_search_state) => {
                         prev_search_state.dir_index += 1;
